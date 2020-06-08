@@ -1,10 +1,13 @@
 // 学习01背包问题，使用动态规划，配重价格和重量在下面两个数组中一一对应，
 var weightArr = [1,1,2,4,12]; // 重量
 var valArr = [1,2,2,10,4]; // 价格
-var bagCapacity = 15; // 背包容量
-var maxPickNum = 5; // 最多拿几个
 
-// 获取最佳方案，采用bottom up方法
+
+/**
+ * 获取最佳方案，采用bottom up方法
+ * @param {*} cap 背包容量
+ * @param {*} maxPickNum 最多拿几个
+ */
 function getBaetSolution(cap,maxPickNum) {
 	// 初始化完整DP表
 	var dp = new Array(maxPickNum +1);

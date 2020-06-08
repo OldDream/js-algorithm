@@ -17,7 +17,7 @@ function getBestPrice(barLength) {
   const baetProfitArr = new Array(barLength + 1) // 不同长度钢条的最佳收益，index为长度
   baetProfitArr[0] = { value: 0 } // 长度为0的钢条，价格为0
 
-  // 自底向下，从0开始，填充 baetProfitArr 数组
+  // 自底向上，从0开始，填充 baetProfitArr 数组
   for (let i = 0; i <= barLength; i++) {
     let bestProfit = Number.MIN_SAFE_INTEGER // 给一个最小值，保证小于任何切法的收益，能给负无穷最好
     // 计算长度为 i 的钢条的最佳收益，j 为从 i 中切除的长度
