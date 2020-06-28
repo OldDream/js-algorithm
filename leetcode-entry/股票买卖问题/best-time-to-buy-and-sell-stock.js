@@ -21,6 +21,7 @@
 //   return profit
 // };
 const maxProfit = (pricesList) => {
+  // p[days]的长度比prices[] 多 1 
   let p = new Array(pricesList.length + 1).fill().map(() => new Array(2).fill().map(() => new Array(2))) // 三维数组 [天数][交易次数][持仓状态]    [d][k][s]
 
   // 交易次数为一次，[天数][交易次数][持仓状态]    [d][0 or 1][s]
@@ -35,17 +36,15 @@ const maxProfit = (pricesList) => {
         if (state === 0 && times > 0) {
           p[day][times][state] = Math.max(
             p[day - 1][times][0],
-            p[day - 1][times][1] + pricesList[day - 1] // p[days]的长度比prices[] 多 1 
+            p[day - 1][times][1] + pricesList[day - 1] // sell
           ); // 交易次数在买入时扣除
         } else if (state === 1 && times > 0) {
           p[day][times][state] = Math.max(
             p[day - 1][times][1],
-            p[day - 1][times - 1][0] - pricesList[day - 1]
+            p[day - 1][times - 1][0] - pricesList[day - 1] // buy
           );
-        } else if (times == 0 && state == 0){
+        } else {
           p[day][times][state] = 0
-        } else if (times == 0 && state > 0){
-          p[day][times][state] = 0;
         }
       }
     }
