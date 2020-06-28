@@ -34,5 +34,3 @@ const maxProfit = (pricesList) => {
 
   return p[pricesList.length][0];
 };
-
-console.log(maxProfit([7, 1, 5, 3, 6, 4]));
