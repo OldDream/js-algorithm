@@ -28,6 +28,23 @@ const moveZeroes = (nums) => {
   }
 };
 
+/**
+ * 大佬解法
+ * @param {*} nums 
+ */
+const moveZeroes = function(nums) {
+  let j = 0;
+  for (let i = 0; i <= nums.length -1; i ++) {
+    if (nums[i] !== 0 ) {
+      nums[j] = nums[i];
+      if( i !== j) {
+        nums[i] = 0;
+      }
+      j ++
+    }
+  }
+};
+
 const nums = [4, 0, 0, 3, 0, 0, 5, 1, 0]
 moveZeroes(nums)
 console.log(nums)
