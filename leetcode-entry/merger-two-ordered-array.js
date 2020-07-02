@@ -34,7 +34,6 @@ const merge1 = function (nums1, m, nums2, n) {
 
 const merge = function (nums1, m, nums2, n) {
   // 从后往前
-  let backuplength = nums1.length
   let len0 = m + n - 1, // len0 指向数组1末尾
     len1 = m - 1, // len1从m开始减小，指向数组1正在替换的部位
     len2 = n - 1 // len2从n开始减小，指向数组2正在替换的部位
