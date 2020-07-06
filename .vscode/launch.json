@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceRoot}/leetcode-entry/merger-two-ordered-array.js"
+      "program": "${workspaceRoot}/LRU.js"
     }
   ]
 }
