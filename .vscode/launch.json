@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceRoot}/LRU.js"
+      "program": "${workspaceRoot}/leetcode-entry/reverse-integer.js"
     }
   ]
 }
