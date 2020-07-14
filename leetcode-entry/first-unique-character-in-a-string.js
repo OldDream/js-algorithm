@@ -4,33 +4,37 @@
  * @param {string} s
  * @return {number}
  */
-// let firstUniqChar = function (s) {
-//   let countMap = new Map()
-//   for (let index = 0; index < s.length; index++) {
-//     const element = s.charAt(index);
-//     if (countMap.has(element)) {
-//       let val = countMap.get(element)
-//       countMap.set(element, val + 1)
-//     } else {
-//       countMap.set(element, 1)
-//     }
-//   }
-//   const mapkeys = countMap.keys()
-//   let singleChar = null
-//   for (const key of mapkeys) {
-//     if (countMap.get(key) === 1) {
-//       singleChar = key
-//       break;
-//     }
-//   }
+let firstUniqChar = function (s) {
+  let countMap = new Map()
+  for (let index = 0; index < s.length; index++) {
+    const element = s.charAt(index);
+    if (countMap.has(element)) {
+      let val = countMap.get(element)
+      countMap.set(element, val + 1)
+    } else {
+      countMap.set(element, 1)
+    }
+  }
+  const mapkeys = countMap.keys()
+  let singleChar = null
+  for (const key of mapkeys) {
+    if (countMap.get(key) === 1) {
+      singleChar = key
+      break;
+    }
+  }
 
-//   if (singleChar === null) {
-//     return -1
-//   } else {
-//     return s.indexOf(singleChar)
-//   }
-// };
+  if (singleChar === null) {
+    return -1
+  } else { 
+    return s.indexOf(singleChar)
+  }
+};
 
+/**
+ * 一遍循环
+ * @param {*} s 
+ */
 let firstUniqChar = function (s) {
   s = [...s]
   let charCountMap = {}
