@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceRoot}/leetcode-entry/string-to-integer-atoi.js"
+      "program": "${workspaceRoot}/leetcode-entry/implement-strstr.js"
     }
   ]
 }
