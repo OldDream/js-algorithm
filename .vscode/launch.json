@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceRoot}/leetcode-entry/implement-strstr.js"
+      "program": "${workspaceRoot}/leetcode-special-collection/排序/kth-largest-element-in-an-array.js"
     }
   ]
 }
