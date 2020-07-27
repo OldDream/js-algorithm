@@ -18,12 +18,14 @@ const swap = (arr, i, j) => {
  */
 const randomPartition = (arr, left, right) => {
   const bkr = right, bkl = left
-  let axis = left
+  let axis = left + Math.floor(Math.random() * (right - left))
+  let val = arr[axis]
+  swap(arr, axis, bkl)
   while (true) {
-    while (arr[left] <= arr[axis] && left < axis) {
+    while (arr[left] <= val && left < bkr) {
       left++
     }
-    while (arr[right] >= arr[axis] && right > axis) {
+    while (arr[right] >= val && right > bkl) {
       right--
     }
     if (left >= right) {
@@ -32,8 +34,8 @@ const randomPartition = (arr, left, right) => {
       swap(arr, left, right)
     }
   }
-  swap(arr, axis, left)
-  return axis
+  swap(arr, bkl, right)
+  return right
 }
 
 let findKthLargest = function (nums, k) {
