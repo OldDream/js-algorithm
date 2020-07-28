@@ -50,6 +50,7 @@ const randomPartition = (arr, left, right) => {
 
 
 /**
+ * https://leetcode-cn.com/problems/kth-largest-element-in-an-array/description/
  * 分别使用 quick sort 的 变种 quick select 和 heap sort 解决
  * @param {number[]} nums
  * @param {number} k
