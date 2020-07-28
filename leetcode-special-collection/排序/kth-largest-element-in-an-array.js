@@ -41,10 +41,10 @@ const randomPartition = (arr, left, right) => {
       console.log(arr)
       break;
     } else {
-      swap(arr, left, right)  // 这个很重要，必须和右边的指针交换。为什么不能和左边的指针交换？ 看上面的注释
+      swap(arr, left, right)
     }
   }
-  swap(arr, bkl, right)
+  swap(arr, bkl, right)  // 这个很重要，必须和右边的指针交换。为什么不能和左边的指针交换？ 看上面的注释
   return right // 返回 axisVal 所在的下标
 }
 
