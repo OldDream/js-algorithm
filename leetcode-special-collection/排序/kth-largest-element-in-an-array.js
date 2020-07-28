@@ -1,5 +1,4 @@
-// 先实现quick sort 算法4th P182  ok，切分--保证左右。
-// 再实现 变种 quick select，适用于数据量确定时。
+//  quick select，适用于数据量确定时。
 
 /**
  * 交换数组中i、j两下标对应字符
@@ -36,7 +35,8 @@ const randomPartition = (arr, left, right) => {
       // case 1、left 和 right 交汇于一点 left === right
       // case 2、left 指向一个大于 axisVal 的数， right 指向一个 小于 axisVal的数，此时  left > right
       // 根据以上两种情况，最后要进行一次 swap(arr, bkl, right)，把 axisVal 和 right 指向的数互换.
-      // 在 case1 中，和axisVal可与 arr[left] 或 arr[right] 互换， case2 中，只能与 arr[right] 互换, 因此选择写 swap(arr, bkl, right)
+      // 在 case1 中，和axisVal可与 arr[left] 或 arr[right] 互换， case2 中，只能与 arr[right] 互换
+      // 因此，在 return 前，进行 swap(arr, bkl, right)，将 axisVal 与 right 所指向的值互换
 
       console.log(arr)
       break;
@@ -48,6 +48,13 @@ const randomPartition = (arr, left, right) => {
   return right // 返回 axisVal 所在的下标
 }
 
+
+/**
+ * 分别使用 quick sort 的 变种 quick select 和 heap sort 解决
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
 let findKthLargest = function (nums, k) {
   k = nums.length - k;
   let left = 0,
@@ -68,15 +75,6 @@ let findKthLargest = function (nums, k) {
 console.log(findKthLargest([3, 2, 1, 5, 6, 4], 2))
 
 
-/**
- * 分别使用 quick sort 的 变种 quick select 和 heap sort 解决
- * @param {number[]} nums
- * @param {number} k
- * @return {number}
- */
-// var findKthLargest = function (nums, k) {
-
-// };
 
 // heap sort 算法4th P195，适用于数据量不定时
 
