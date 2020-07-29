@@ -13,19 +13,143 @@
  * @return {number}
  */
 let findKthLargest = function (nums, k) {
-  // 采用小顶堆，则堆大小为 k，先构建尺寸为k的堆，后如果后来的数值大于 堆顶， 则换掉顶 + 重新堆化
-  
-};
+  let pq = new priorityQueue(nums.length)
+  nums.forEach(element => {
+    pq.add(element)
+  });
 
+  for (let index = 1; index < k; index++) {
+    pq.delTop()
+  }
+
+  return pq.top()
+};
 
 /**
- * @param {number[]} nums
- * @param {number} k
- * @return {number}
+ * 优先级队列，使用大顶堆实现
  */
-var findKthLargest = function(nums, k) {
-  
-};
+class priorityQueue {
+  constructor(size) {
+    this.heap = new Array(size + 1).fill(null) // 下标为0的地方空出,这样父子节点乘2除2的时候就不会出现0*2=0这种bug情况,后面多留一位，用于熔炼大道上限时临时使用
+    this.currentSize = 0
+  }
+
+  /**
+   * 上浮元素
+   */
+  swim(index) {
+    // 非位于堆顶 且 大于父节点
+    while (index > 1 && this.heap[index] > this.heap[this.parent(index)]) {
+      this.exch(index, this.parent(index))
+      index = this.parent(index)
+    }
+  }
+
+  /**
+   * 下沉元素
+   */
+  sink(index) {
+    while (this.left(index) <= this.currentSize) {
+      let maxIndex = this.left(index)// 先假设左边节点较大
+      // 如果右边节点存在，比一下大小
+      if (this.right(index) < this.currentSize && this.heap[maxIndex] < this.heap[this.right(index)]) {
+        maxIndex = this.right(index)
+      }
+      if (this.heap[index] > this.heap[maxIndex]) {
+        break;
+      } else {
+        this.exch(index, maxIndex)
+        index = maxIndex
+      }
+    }
+  }
 
 
-console.log(findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4))
+  /**
+   * 获取父节点坐标
+   * @param {Number} index 
+   */
+  parent(index) {
+    return Math.floor(index / 2)
+  }
+
+  /**
+   * 获取左子节点坐标
+   * @param {Number} index 
+   */
+  left(index) {
+    return index * 2
+  }
+
+  /**
+   * 获取右子节点坐标
+   * @param {Number} index 
+   */
+  right(index) {
+    return index * 2 + 1
+  }
+
+
+  /**
+   * 是否已满
+   */
+  isFull() {
+    return this.currentSize < this.heap.length - 1
+  }
+
+  /**
+   * 删除堆顶的元素
+   */
+  delTop() {
+    this.exch(1, this.currentSize)
+    this.heap[this.currentSize] = null
+    this.currentSize--
+    this.sink(1)
+  }
+
+  /**
+   * 往堆中添加数据
+   */
+  add(val) {
+    if (this.isFull()) {
+      // 未满
+      this.currentSize++
+      this.heap[this.currentSize] = val
+      this.swim(this.currentSize)
+    } else {
+      // 已满
+      if (val > this.top()) {
+        let targetIndex = this.getMinIndex()
+        this.heap[targetIndex] = val
+        this.swim(targetIndex)
+      }
+    }
+  }
+
+  top() {
+    return this.heap[1]
+  }
+
+  getMinIndex() {
+    let min = this.heap[Math.min(this.currentSize / 2)];
+    let minIndex = Math.min(this.currentSize / 2)
+    for (let index = Math.min(this.currentSize / 2) + 1; index <= this.currentSize; index++) {
+      if (this.heap[index] <= min) {
+        min = this.heap[index]
+        minIndex = index
+      }
+    }
+    return minIndex
+  }
+
+  /**
+   * 交换堆中元素
+   */
+  exch(i, j) {
+    let temp = this.heap[i]
+    this.heap[i] = this.heap[j]
+    this.heap[j] = temp
+  }
+}
+
+console.log(findKthLargest([3,2,1,5,6,4], 2))
