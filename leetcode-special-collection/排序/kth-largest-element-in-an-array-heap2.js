@@ -7,15 +7,11 @@
  * @return {number}
  */
 let findKthLargest = function (nums, k) {
-  let pq = new priorityQueue(nums.length)
-  // 先加后删的低效率手段
+  // 使用定长的 优先队列。
+  let pq = new priorityQueue(nums.length -k + 1)
   nums.forEach(element => {
     pq.add(element)
   });
-
-  for (let index = 1; index < k; index++) {
-    pq.delTop()
-  }
 
   return pq.top()
 };
@@ -111,6 +107,12 @@ class priorityQueue {
       this.currentSize++
       this.heap[this.currentSize] = val
       this.swim(this.currentSize)
+    } else {
+      // 已满
+      if (val < this.top()) { // 把小的往堆里放，保证整个堆中包含了数组从小到大排序后从[0]到 [heap.length - 2] 的数。
+        this.heap[1] = val
+        this.sink(1)
+      }
     }
   }
 
@@ -140,4 +142,4 @@ class priorityQueue {
   }
 }
 
-console.log(findKthLargest([3,2,1,5,6,4], 2))
+console.log(findKthLargest([7,6,5,4,3,2,1], 5))
