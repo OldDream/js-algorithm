@@ -6,7 +6,7 @@
 
 /**
  * https://leetcode-cn.com/problems/kth-largest-element-in-an-array/description/
- * https://github.com/sisterAn/JavaScript-Algorithms/issues/60
+ * https://github.com/labuladong/fucking-algorithm/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97/%E4%BA%8C%E5%8F%89%E5%A0%86%E8%AF%A6%E8%A7%A3%E5%AE%9E%E7%8E%B0%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97.md
  * 分别使用 quick sort 的 变种 quick select 和 heap sort 解决
  * @param {number[]} nums
  * @param {number} k
@@ -14,48 +14,18 @@
  */
 let findKthLargest = function (nums, k) {
   // 采用小顶堆，则堆大小为 k，先构建尺寸为k的堆，后如果后来的数值大于 堆顶， 则换掉顶 + 重新堆化
-  // 采用从后往前的堆化方式
-  let heap = ['']
-  for (let index = 0; index < k; index++) {
-    heap.push(nums[index])
-  }
-
-  buildHeap(heap) // 先将数组堆化
-  for (let index = k; index < nums.length; index++) {
-    const currentNum = nums[index];
-    if (currentNum > heap[1]) { // 把大的往堆里塞
-      heap[1] = currentNum
-      buildHeap(heap) // 每次换顶，都要重新遍历整个堆，效率其实不高
-    }
-  }
-
-  return heap[1]
+  
 };
 
-// 原地建堆
-function buildHeap(items, heapSize =1) {
-  while(heapSize < items.length - 1) {
-      heapSize ++
-      heapify(items, heapSize)
-  }
-}
-
-function heapify(items, i) {
-  // 自下而上式堆化
-  while (Math.floor(i/2) > 0 && items[i] < items[Math.floor(i/2)]) {  
-      swap(items, i, Math.floor(i/2)); // 交换 
-      i = Math.floor(i/2); 
-  }
-}  
 
 /**
-   * 交换
-   */
-function swap(arr, i, j) {
-  let temp = arr[i]
-  arr[i] = arr[j]
-  arr[j] = temp
-}
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var findKthLargest = function(nums, k) {
+  
+};
 
 
 console.log(findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4))
