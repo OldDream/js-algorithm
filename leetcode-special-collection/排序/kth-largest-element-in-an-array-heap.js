@@ -15,41 +15,38 @@
 let findKthLargest = function (nums, k) {
   // 采用小顶堆，则堆大小为 k，先构建尺寸为k的堆，后如果后来的数值大于 堆顶， 则换掉顶 + 重新堆化
   // 采用从后往前的堆化方式
-  const heap = buildHeap(nums, k)
+  let heap = ['']
+  for (let index = 0; index < k; index++) {
+    heap.push(nums[index])
+  }
+
+  buildHeap(heap)
   for (let index = k; index < nums.length; index++) {
     const currentNum = nums[index];
-    if (currentNum > heap[0]) { // 把大的往堆里塞
-      heap[0] = currentNum
-      heapify(heap)
+    if (currentNum > heap[1]) { // 把大的往堆里塞
+      heap[1] = currentNum
+      buildHeap(heap)
     }
   }
 
-  return heap[0]
+  return heap[1]
 };
 
-/**
- * 插入建堆
- */
-function buildHeap(sourceArr, heapSize) {
-  let heap = new Array(heapSize)
-  for (let index = 0; index < heapSize; index++) {
-    heap[index]=sourceArr[index]
-    while (Math.floor(index / 2) >= 0 && heap[index] < heap[Math.floor(index / 2)]) {
-      swap(heap, index, Math.floor(index / 2))
-    }
+// 原地建堆
+function buildHeap(items, heapSize =1) {
+  while(heapSize < items.length - 1) {
+      heapSize ++
+      heapify(items, heapSize)
   }
-  return heap
 }
 
-/**
- * 堆化，自下而上(和父节点比较)
- */
-function heapify(heapArr) {
-  let i = heapArr.length - 1
-  while (Math.floor(i / 2) >= 0 && heapArr[i] < heapArr[Math.floor(i / 2)]) {
-    swap(heapArr, i, Math.floor(i / 2))
+function heapify(items, i) {
+  // 自下而上式堆化
+  while (Math.floor(i/2) > 0 && items[i] < items[Math.floor(i/2)]) {  
+      swap(items, i, Math.floor(i/2)); // 交换 
+      i = Math.floor(i/2); 
   }
-}
+}  
 
 /**
    * 交换
@@ -61,4 +58,4 @@ function swap(arr, i, j) {
 }
 
 
-console.log(findKthLargest([3, 2, 1, 5, 6, 4], 2))
+console.log(findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4))
