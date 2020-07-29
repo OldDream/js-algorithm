@@ -20,12 +20,12 @@ let findKthLargest = function (nums, k) {
     heap.push(nums[index])
   }
 
-  buildHeap(heap)
+  buildHeap(heap) // 先将数组堆化
   for (let index = k; index < nums.length; index++) {
     const currentNum = nums[index];
     if (currentNum > heap[1]) { // 把大的往堆里塞
       heap[1] = currentNum
-      buildHeap(heap)
+      buildHeap(heap) // 每次换顶，都要重新遍历整个堆，效率其实不高
     }
   }
 
