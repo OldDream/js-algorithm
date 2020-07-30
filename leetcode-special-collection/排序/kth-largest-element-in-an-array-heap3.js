@@ -75,7 +75,7 @@ class priorityQueue {
       this.swim(this.currentSize)
     } else {
       // 已满
-      if (val > this.top()) { // 把小的往堆里放，保证整个堆中包含了数组从小到大排序后从[0]到 [heap.length - 2] 的数。
+      if (val > this.top()) { // 把大的往堆里放，这样堆顶就是这 sizeLimit 个数中最小的
         this.heap[1] = val
         this.sink(1)
       }
