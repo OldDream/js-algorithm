@@ -118,18 +118,6 @@ class priorityQueue {
     return this.heap[1]
   }
 
-  getMinIndex() {
-    let min = this.heap[Math.min(this.currentSize / 2)];
-    let minIndex = Math.min(this.currentSize / 2)
-    for (let index = Math.min(this.currentSize / 2) + 1; index <= this.currentSize; index++) {
-      if (this.heap[index] <= min) {
-        min = this.heap[index]
-        minIndex = index
-      }
-    }
-    return minIndex
-  }
-
   /**
    * 交换堆中元素
    */
