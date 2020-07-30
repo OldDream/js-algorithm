@@ -1,7 +1,6 @@
 /**
  * https://leetcode-cn.com/problems/kth-largest-element-in-an-array/description/
  * https://github.com/labuladong/fucking-algorithm/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97/%E4%BA%8C%E5%8F%89%E5%A0%86%E8%AF%A6%E8%A7%A3%E5%AE%9E%E7%8E%B0%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97.md
- * 分别使用 quick sort 的 变种 quick select 和 heap sort 解决
  * 小顶堆版本，需要维护一个大小为k的小顶堆，堆满后，新元素和堆顶对比，如果大于堆顶那个，则替换掉堆顶，并sink
  * @param {number[]} nums
  * @param {number} k
