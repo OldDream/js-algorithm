@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceRoot}/leetcode-entry/Array/valid-sudoku.js"
+      "program": "${workspaceRoot}/leetcode-entry/String/implement-strstr-KMP.js"
     }
   ]
 }
