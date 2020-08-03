@@ -5,19 +5,19 @@
  */
 var longestCommonPrefix = function(strs) {
   // 初始化最短长度
-  let minLenght = Number.POSITIVE_INFINITY
-  for (const iterator of strs) {
-    if (iterator.length < minLenght) minLenght = iterator.length
-  }
-  if (minLenght ===  Number.POSITIVE_INFINITY) {
+  let lenghtLimit = 0
+  if (strs[0]) {
+    lenghtLimit = strs[0].length
+  } else {
     return ''
   }
+
   let commonPrefix = ''
-  for (let index = 0; index < minLenght; index++) {
+  for (let index = 0; index < lenghtLimit; index++) {
     let charAtIndex = strs[0][index]
     // 若有不相同的则终止程序
     for (const str of strs) {
-      if (str[index] !== charAtIndex) {
+      if (str[index] === undefined || str[index] !== charAtIndex) {
         return commonPrefix
       }
     }
