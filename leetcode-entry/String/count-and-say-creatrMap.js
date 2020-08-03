@@ -29,6 +29,7 @@ const generateStr = (str) => {
 
 
 /**
+ * https://leetcode-cn.com/problems/count-and-say/
  * 这个解法有个问题，保存的数据多了，会爆内存。。。
  * @param {number} n
  * @return {string}
