@@ -46,7 +46,7 @@ var openLock = function (deadends, target) {
   if (deadends.includes('0000')) {
     return -1
   }
-  let visited = ['0000', ...deadends]
+  let visited = new Set(['0000', ...deadends])
   let queue = ['0000']
   let step = 0
   while (queue.length > 0) {
@@ -65,12 +65,12 @@ var openLock = function (deadends, target) {
       for (let index = 0; index < 4; index++) {
         const up = plusOne(tempNode, index)
         const down = minusOne(tempNode, index)
-        if (!visited.includes(up)) {
-          visited.push(up)
+        if (!visited.has(up)) {
+          visited.add(up)
           queue.push(up)
         }
-        if (!visited.includes(down)) {
-          visited.push(down)
+        if (!visited.has(down)) {
+          visited.add(down)
           queue.push(down)
         }
       }
