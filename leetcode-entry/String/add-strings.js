@@ -16,24 +16,24 @@ var addStrings = function (num1, num2) {
     num1 = prefix.concat(num1)
   }
   let addOneInNext = false // 下一位加1
-  let result = []
+  let result = new Array(num1.length)
   // 循环相加
   for (let index = num1.length - 1; index >= 0; index--) {
     const element1 = num1[index];
     const element2 = num2[index];
     let tempSumStr = Number(element1) + Number(element2) + Number(addOneInNext) + ''
     if (tempSumStr.length > 1) {
-      result.push(tempSumStr.slice(1))
+      result[index] = tempSumStr.slice(1)
       addOneInNext = true
     } else {
-      result.push(tempSumStr)
+      result[index] = tempSumStr
       addOneInNext = false
     }
   }
   if (addOneInNext) {
-    result.push('1')
+    result.unshift('1')
   }
-  return result.reverse().join('')
+  return result.join('')
 };
 
 addStrings('9', '99')
