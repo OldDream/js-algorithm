@@ -12,8 +12,8 @@
  * @return {ListNode}
  */
 var addTwoNumbers = function (l1, l2) {
-  let head = null,
-    current // 新数组中当前所在节点
+  let pre = new ListNode(0), // pre.next 为所返回结果的起点
+    current = pre// 新数组中当前所在节点
   let pointer1 = l1,
     pointer2 = l2,
     carry = false // 是否需要进位
@@ -29,16 +29,8 @@ var addTwoNumbers = function (l1, l2) {
       carry = true
       tempVal -= 10
     }
-    // console.log(tempVal)
-    const tempNode = new ListNode(tempVal)
-    // console.log(tempNode)
-    if (head === null) {
-      head = tempNode
-      current = head
-    } else {
-      current.next = tempNode
-      current = current.next
-    }
+    current.next = new ListNode(tempVal)
+    current = current.next
     pointer1 = pointer1.next
     pointer2 = pointer2.next
   }
@@ -56,16 +48,14 @@ var addTwoNumbers = function (l1, l2) {
       carry = true
       tempVal -= 10
     }
-    const tempNode = new ListNode(tempVal)
-    current.next = tempNode
+    current.next = new ListNode(tempVal)
     current = current.next
     lastLink = lastLink.next
   }
   // 处理结束后最后一位
   if (carry) {
-    const tempNode = new ListNode(1)
-    current.next = tempNode
+    current.next = new ListNode(1)
   }
 
-  return head
+  return pre.next
 };
