@@ -21,6 +21,7 @@ var isValidBST = function (root) {
   return _isValidBST(root, null, null)
 };
 
+// 这启示我们设计一个递归函数 helper(root, lower, upper) 来递归判断，函数表示考虑以 root 为根的子树，判断子树中所有节点的值是否都在 (l,r)(l,r) 的范围内
 function _isValidBST(root, min, max) {
   if (root === null) return true;
   if (min !== null && min.val >= root.val) return false;
