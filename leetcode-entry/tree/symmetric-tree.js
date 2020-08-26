@@ -7,6 +7,7 @@
  * }
  */
 /**
+ * 广度优先
  * @param {TreeNode} root
  * @return {boolean}
  */
