@@ -6,6 +6,7 @@
  * }
  */
 /**
+ * 进行递归的比较，直接比较对称位置的两个点。
  * @param {TreeNode} root
  * @return {boolean}
  */
