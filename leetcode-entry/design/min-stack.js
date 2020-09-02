@@ -22,6 +22,7 @@ MinStack.prototype.push = function(x) {
 MinStack.prototype.pop = function() {
   this.stack.pop()
   this.minStack.pop()
+  // 注意，如果用独立的变量来记录min，那么在pop的时候需要同时更新min
 };
 
 /**
