@@ -3,12 +3,12 @@
  * @return {number[][]}
  */
 var generate = function (numRows) {
-  const result = []
+  const result = new Array(numRows)
   for (let row = 0; row < numRows; row++) {
-    result.push(new Array(row + 1))
+    result[row] = new Array(row + 1)
     for (let col = 0; col < row + 1; col++) {
       const rowArr = result[row]
-      if (col === 0 || col === row) { // 处理每行首位
+      if (col === 0 || col === row) { // 处理每行首尾
         rowArr[col] = 1
       } else {
         // 处理中间部位
