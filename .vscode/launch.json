@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceRoot}/leetcode-entry/Others/valid-parentheses.js"
+      "program": "${workspaceRoot}/杂项/Curry.js"
     }
   ]
 }
