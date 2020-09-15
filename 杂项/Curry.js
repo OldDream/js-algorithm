@@ -9,9 +9,9 @@ function add(sum) {
 // console.log(+add(1)(2))
 
 function add2() {
-  let argsSum = Array.from(arguments).reduce((prev, next) => prev + next)
+  let argsSum = [].slice.call(arguments).reduce((prev, next) => prev + next)
   let fn = function () {
-    return add2(Array.from(arguments).reduce((prev, next) => prev + next) + argsSum)
+    return add2([].slice.call(arguments).reduce((prev, next) => prev + next) + argsSum)
   }
   fn.valueOf = () => argsSum
   return fn
