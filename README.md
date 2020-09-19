@@ -6,6 +6,10 @@
 
 
 
+leetcode-entry  为 leetcode 中的初级算法清单对应题目
+
+labuladong 为 labuladong 的 [fucking-algorithm](https://github.com/labuladong/fucking-algorithm) 中对应题目
+
 
 
 2020.05.26
