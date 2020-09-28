@@ -21,6 +21,7 @@ var flatten = function (root) {
   root.right = root.left;
   root.left = null;
   let endOfRight = root;
+  //  寻找最末端
   while (endOfRight.right) {
     endOfRight = endOfRight.right;
   }
