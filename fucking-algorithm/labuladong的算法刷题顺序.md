@@ -10,3 +10,5 @@
 
 **把题目的要求细化，搞清楚根节点应该做什么，然后剩下的事情抛给前/中/后序的遍历框架就行了**，我们千万不要跳进递归的细节里，你的脑袋才能压几个栈呀。
 
+3、[二叉树就那几个框架](http://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247485871&idx=1&sn=bcb24ea8927995b585629a8b9caeed01&chksm=9bd7f7a7aca07eb1b4c330382a4e0b916ef5a82ca48db28908ab16563e28a376b5ca6805bec2&scene=21#wechat_redirect) ，二叉树的题，就那几个框架，枯燥至极
+
