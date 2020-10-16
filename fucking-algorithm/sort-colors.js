@@ -22,8 +22,6 @@ var sortColors = function (nums) {
    * @param {*} right 右侧index
    */
   function sort(numberArr, left, right) {
-    console.log('sort:' + left + ',' + right);
-    console.log(numberArr);
     const cutterNum = numberArr[left];
     let leftPointer = left + 1;
     let rightPointer = right;
@@ -45,20 +43,18 @@ var sortColors = function (nums) {
       swap(numberArr, left, leftPointer);
       // 切分点小于切分数
     } else {
-      // 切分点大于等于切分数，则选择其左边的数，必定小于切分点。
+      // 切分点大于等于切分数，则选择其左边的数，因为左边的数必定小于切分点。
       swap(numberArr, left, --leftPointer);
     }
     console.log(leftPointer + ',' + rightPointer);
     if (
       left < leftPointer
     ) {
-      console.log(1)
       sort(numberArr, left, leftPointer - 1);
     }
     if (
       leftPointer < right 
     ) {
-      console.log(2)
       sort(numberArr, leftPointer + 1, right);
     }
   }
