@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceRoot}/杂项/flatten-arr.js"
+      "program": "${workspaceRoot}/fucking-algorithm/sort-colors.js"
     }
   ]
 }

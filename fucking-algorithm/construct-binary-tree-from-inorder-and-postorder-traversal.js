@@ -28,8 +28,6 @@ var buildTree = function (inorder, postorder) {
     postorderStart,
     postorderEnd
   ) {
-    // console.log('inorderStart:' + inorderStart)
-    // console.log(inorderEnd)
     // 利用后序遍历特性：结果中，最后一个数字为根节点。
     // 中序遍历特性，根节点左边的所有数字，为其左子树，右侧为其右子树
     // 利用中序得到左右子树的大小，结合前序遍历的结果，就能得到左右子树的根节点，然后就能开始递归了。
@@ -60,6 +58,4 @@ var buildTree = function (inorder, postorder) {
 
     return rootNode;
   }
-
-  
 };
